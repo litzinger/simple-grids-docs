@@ -20,9 +20,9 @@ Remember, this is **Simple** Grid. Adding options for each column goes beyond th
 ### Are there plans to add additional fieldtype support?
 Not at this time. A fieldtype must meet the following conditions to be supported by Simple Grid:
 
-    Save data as a string. No complicated data such as arrays.
-    Be able to function with out any field or column settings.
-    Be easy to add to the codebase and easy to maintain.
+1. Save data as a string. No complicated data such as arrays.
+2. Be able to function with out any field or column settings.
+3. Be easy to add to the codebase and easy to maintain.
 
 This isn't to say additional fieldtypes won't be supported, but they will be very, very carefully reviewed before support is added.
 
