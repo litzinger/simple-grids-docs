@@ -55,7 +55,7 @@ Since Simple Table does not have named columns, all of the column values are ava
 
     {grid_field}
         <table>
-        {grid_field:simple_table_column}
+        {grid_field:simple_table_field}
             <tr switch="{switch='odd|even'}">
                 {columns}
                     {if is_first_row}
@@ -73,7 +73,7 @@ Since Simple Table does not have named columns, all of the column values are ava
                     {/if}
                 {/columns}
             </tr>
-        {/grid_field:simple_table_column}
+        {/grid_field:simple_table_field}
         </table>
     {/grid_field}
 
