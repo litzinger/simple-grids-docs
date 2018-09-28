@@ -83,12 +83,13 @@ Unlike Simple Table, Simple Grid does have named columns. In this case the colum
 Simple Grid operates very similarly to the native Grid field, but does not have varible modifiers such as ``:sum`` or ``:average``.
 
     {grid_field}
+        {grid_field:total_rows}
         <table>
-        {grid_field:simple_grid_column}
-            <tr switch="{switch='odd|even'}">
-                <th>{description}</th>
-                <td>{file}</td>
+        {grid_field:simple_grid_field}
+            <tr switch="{switch='odd|even'}" data-total-rows="{total_rows}">
+                <th>{description}</th> <!-- This is a column name in the Simple Grid field -->
+                <td>{file}</td> <!-- This is a column name in the Simple Grid field -->
             </tr>
-        {/grid_field:simple_grid_column}
+        {/grid_field:simple_grid_field}
         </table>
     {/grid_field}
