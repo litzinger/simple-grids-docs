@@ -76,6 +76,32 @@ Since Simple Table does not have named columns, all of the column values are ava
         {/grid_field:simple_table_field}
         </table>
     {/grid_field}
+    
+#### Simple Table (inside Bloqs)
+
+    {bloqs_field}
+        {block}
+            {simple_table_field}
+                <tr switch="{switch='odd|even'}">
+                    {columns}
+                        {if is_first_row}
+                            <th data-id="{column_id}">
+                                {value}
+                            </th>
+                        {if:elseif is_last_row}
+                            <td data-id="{column_id}">
+                                <i>{value}</i>
+                            </td>
+                        {if:else}
+                            <td data-id="{column_id}">
+                                {value}
+                            </td>
+                        {/if}
+                    {/columns}
+                </tr>
+            {/simple_table_field}
+        {/block}
+    {/bloqs_field}
 
 #### Simple Grid (inside Grid)
 
