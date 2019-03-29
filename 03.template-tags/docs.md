@@ -92,3 +92,9 @@ Simple Grid operates very similarly to the native Grid field, but does not have 
         {/grid_field:simple_grid_column}
         </table>
     {/grid_field}
+
+### Date and Date with Timezone fields
+
+Simple Grid contains a `Date` and `Date with Timezone` field. When using a `Date` field, the template variable is the name of the column as indicated above, e.g. `{my_date_column}`
+
+However, when using the `Date with Timezone` field there are modifiers, e.g. `{my_date_column:date}` and `{my_date_column:timezone}`. You essentially get two template variables out of this single column.
