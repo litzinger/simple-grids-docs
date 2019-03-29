@@ -55,7 +55,7 @@ Since Simple Table does not have named columns, all of the column values are ava
 
     {grid_field}
         <table>
-        {grid_field:simple_table_column}
+        {grid_field:simple_table_field}
             <tr switch="{switch='odd|even'}">
                 {columns}
                     {if is_first_row}
@@ -73,9 +73,35 @@ Since Simple Table does not have named columns, all of the column values are ava
                     {/if}
                 {/columns}
             </tr>
-        {/grid_field:simple_table_column}
+        {/grid_field:simple_table_field}
         </table>
     {/grid_field}
+
+#### Simple Table (inside Bloqs)
+
+    {bloqs_field}
+        {block}
+            {simple_table_field}
+                <tr switch="{switch='odd|even'}">
+                    {columns}
+                        {if is_first_row}
+                            <th data-id="{column_id}">
+                                {value}
+                            </th>
+                        {if:elseif is_last_row}
+                            <td data-id="{column_id}">
+                                <i>{value}</i>
+                            </td>
+                        {if:else}
+                            <td data-id="{column_id}">
+                                {value}
+                            </td>
+                        {/if}
+                    {/columns}
+                </tr>
+            {/simple_table_field}
+        {/block}
+    {/bloqs_field}
 
 #### Simple Grid (inside Grid)
 
@@ -83,13 +109,14 @@ Unlike Simple Table, Simple Grid does have named columns. In this case the colum
 Simple Grid operates very similarly to the native Grid field, but does not have varible modifiers such as ``:sum`` or ``:average``.
 
     {grid_field}
+        {grid_field:total_rows}
         <table>
-        {grid_field:simple_grid_column}
-            <tr switch="{switch='odd|even'}">
-                <th>{description}</th>
-                <td>{file}</td>
+        {grid_field:simple_grid_field}
+            <tr switch="{switch='odd|even'}" data-total-rows="{total_rows}">
+                <th>{description}</th> <!-- This is a column name in the Simple Grid field -->
+                <td>{file}</td> <!-- This is a column name in the Simple Grid field -->
             </tr>
-        {/grid_field:simple_grid_column}
+        {/grid_field:simple_grid_field}
         </table>
     {/grid_field}
 
