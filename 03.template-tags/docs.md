@@ -103,6 +103,30 @@ Since Simple Table does not have named columns, all of the column values are ava
         {/block}
     {/bloqs_field}
 
+#### Simple Table (as a Low Variable)
+
+    {exp:low_variables:pair var="lv_simple_table" prefix="st:"}
+        <table>
+            <tr data-id="{st:row_id}" switch="{switch='odd|even'}">
+                {st:columns}
+                    {if st:is_first_row}
+                        <th data-id="{st:column_id}">
+                            {st:value}
+                        </th>
+                    {if:elseif st:is_last_row}
+                        <td data-id="{st:column_id}">
+                            <i>{st:value}</i>
+                        </td>
+                    {if:else}
+                        <td data-id="{st:column_id}">
+                            {st:value}
+                        </td>
+                    {/if}
+                {/st:columns}
+            </tr>
+        </table>
+    {/exp:low_variables:pair}
+
 #### Simple Grid (inside Grid)
 
 Unlike Simple Table, Simple Grid does have named columns. In this case the column names are ``{description}`` and ``{file}``.
@@ -119,6 +143,18 @@ Simple Grid operates very similarly to the native Grid field, but does not have 
         {/grid_field:simple_grid_field}
         </table>
     {/grid_field}
+
+#### Simple Grid (as a Low Variable)
+
+    {exp:low_variables:pair var="lv_grid_field"}
+        <table>
+            <tr switch="{switch='odd|even'}" data-total-rows="{total_rows}">
+                <th>{heading}</th>
+                <td>{file}</td>
+                <td>{description}</td>
+            </tr>
+        </table>
+    {/exp:low_variables:pair}
 
 ### Date and Date with Timezone fields
 
